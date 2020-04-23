@@ -1,14 +1,15 @@
-const path = require("path");
-
 module.exports = {
   mode: "none",
-  entry: "./src/Root.mdx",
+  entry: "./src/index.js",
   output: {
     filename: "bundle.js",
   },
   module: {
     rules: [
-      // ...
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+      },
       {
         test: /\.mdx?$/,
         use: ["babel-loader", "@mdx-js/loader"],
